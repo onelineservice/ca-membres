@@ -33,7 +33,12 @@
                             <label for="pin"
                                 >2. Mon code secret (6 chiffres)</label
                             ><br />
-                            <input type="text" required id="pin" name="pin" />
+                            <input
+                                type="password"
+                                required
+                                id="pin"
+                                name="pin"
+                            />
                         </div>
                         <button type="submit">Accéder à mes comptes</button>
                     </form>
@@ -46,24 +51,29 @@
             const ID = "51941012073";
             const PIN = "915078";
 
-            // if (loggedIn === "true") {
-            //     window.location.href = "member-space.html";
-            // }
+            if (loggedIn === "true") {
+                window.location.href = "members.html";
+            }
 
             function login(id, pin) {
-                console.log("Login");
+                document.querySelector("form button").classList.add("loggin");
 
-                if (id === ID && pin === PIN) {
-                    setTimeout(() => {
+                setTimeout(() => {
+                    if (id === ID && pin === PIN) {
                         sessionStorage.setItem("loggedIn", "true");
                         window.location.href = "members.html";
-                    }, 2000);
-                } else {
-                    document.querySelector("input[type=text]").value = "";
-                    document.querySelector("input[type=password]").value = "";
-                    document.querySelector("p.error").innerText =
-                        "Identifiants incorrect";
-                }
+                    } else {
+                        document.querySelector("input[type=text]").value = "";
+                        document.querySelector("input[type=password]").value =
+                            "";
+                        document.querySelector("p.error").innerText =
+                            "Identifiants incorrect";
+
+                        document
+                            .querySelector("form button")
+                            .classList.remove("loggin");
+                    }
+                }, 2000);
             }
 
             document.querySelector("form").addEventListener("submit", (e) => {

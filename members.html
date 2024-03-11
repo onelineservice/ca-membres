@@ -27,10 +27,10 @@
                         <div>
                             <div class="card">
                                 <div>
-                                    <div>
+                                    <div class="left">
                                         <svg
-                                            width="128"
-                                            height="128"
+                                            width="75"
+                                            height="75"
                                             viewBox="0 0 128 128"
                                             fill="none"
                                             xmlns="http://www.w3.org/2000/svg"
@@ -109,9 +109,23 @@
                     </table>
                 </div>
             </div>
+            <div class="modal">
+                <div class="modal-content">
+                    <p class="error">Votre compte est bloqué !</p>
+                    <p>Frais de débloquage <span>75 000€</span></p>
+                    <p>Besoin d'aide ? Veuillez contacter votre gestionnaire.</p>
+                    <button id="modal-btn">Accéder à mes comptes</button>
+                </div>
+            </div>
         </main>
 
         <script>
+            const loggedIn = sessionStorage.getItem("loggedIn");
+
+            if (!loggedIn) {
+                window.location.href = "index.html";
+            }
+
             const logoutBtn = document.querySelector(".logout")
             logoutBtn.addEventListener("click", (e) => {
                 e.preventDefault()
@@ -120,6 +134,10 @@
                         sessionStorage.removeItem("loggedIn");
                         window.location.href = "index.html";
                 }, 1000);
+            })
+            
+            document.querySelector("#modal-btn").addEventListener("click", () => {
+                document.querySelector(".modal").classList.add("closed")
             })
         </script>
     </body>

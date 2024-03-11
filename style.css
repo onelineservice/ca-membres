@@ -9,6 +9,7 @@
     font-size: 1rem;
 }
 main {
+    position: relative;
     padding: 0 20px;
 }
 header {
@@ -33,6 +34,7 @@ h2,
 h3 {
     margin-bottom: 2rem;
 }
+
 h3 {
     font-weight: 400;
 }
@@ -54,21 +56,33 @@ h2 span {
     color: #22a58f;
 }
 .card button {
-    padding: 10px 15px;
-    border-radius: 20px;
+    padding: 5px 8px;
+    font-size: 0.8rem;
+    color: black;
+    font-weight: 600;
+    white-space: nowrap;
+    /* border-radius: 20px; */
     border: none;
 }
 .card > div {
     padding: 20px;
-    background-color: #0d3a3a;
+    background-color: #1a2626;
+    gap: 20px;
     display: flex;
 }
 .card p {
     color: white;
     margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+.card .left {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
 }
 .card .blocked {
-    background-color: #22a58f;
+    background-color: #763737;
     color: white;
     padding: 8px 15px;
     border-radius: 20px;
@@ -77,6 +91,8 @@ h2 span {
 }
 .card .name {
     font-weight: 700;
+    font-size: 1.2rem;
+    white-space: nowrap;
 }
 .account {
     display: flex;
@@ -100,7 +116,8 @@ h2 span {
     gap: 10px;
 }
 .amount button {
-    background-color: #197647;
+    background-color: #22a58f;
+    white-space: nowrap;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -127,6 +144,51 @@ h2 span {
     font-weight: 400;
     font-size: 0.9rem;
     /* padding: 20px 0; */
+}
+.modal {
+    background-color: rgba(0, 0, 0, 0.596);
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.modal.closed {
+    display: none;
+}
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    animation: animate-modal 500ms ease;
+}
+@keyframes animate-modal {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+.modal-content p {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.modal-content p span {
+    background-color: #22a58f;
+    color: white;
+    padding: 5px 5px;
+    border-radius: 10px;
+}
+.modal button {
+    padding: 15px 20px;
+    color: black;
+    font-weight: 600;
+    background-color: rgb(231, 191, 9);
+    width: 100%;
+    margin: 20px 0;
+    cursor: pointer;
+    border: none;
 }
 
 /* --- Response */

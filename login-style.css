@@ -25,3 +25,10 @@ button[type="submit"] {
     border: none;
     cursor: pointer;
 }
+button.loggin {
+    opacity: 0.6;
+}
+.error {
+    padding: 20px 0;
+    color: #c02525;
+}
